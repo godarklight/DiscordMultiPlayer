@@ -1,0 +1,35 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMPDiscord", "DMPDiscord\DMPDiscord.csproj", "{C458E6F7-7577-469C-8A7B-29A4E30F0984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMPDiscord", "LMPDiscord\LMPDiscord.csproj", "{DFF71400-0D81-4384-B082-E8BDAFF8F5CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordConnector", "DiscordConnector\DiscordConnector.csproj", "{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordMultiPlayerBot", "DiscordMultiPlayerBot\DiscordMultiPlayerBot.csproj", "{FB1F63A8-C669-4683-9527-785DF1AB8A05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C458E6F7-7577-469C-8A7B-29A4E30F0984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C458E6F7-7577-469C-8A7B-29A4E30F0984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C458E6F7-7577-469C-8A7B-29A4E30F0984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C458E6F7-7577-469C-8A7B-29A4E30F0984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF71400-0D81-4384-B082-E8BDAFF8F5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF71400-0D81-4384-B082-E8BDAFF8F5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF71400-0D81-4384-B082-E8BDAFF8F5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF71400-0D81-4384-B082-E8BDAFF8F5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1F63A8-C669-4683-9527-785DF1AB8A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1F63A8-C669-4683-9527-785DF1AB8A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1F63A8-C669-4683-9527-785DF1AB8A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1F63A8-C669-4683-9527-785DF1AB8A05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
