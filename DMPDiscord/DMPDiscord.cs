@@ -44,7 +44,7 @@ namespace DMPDiscord
             }
             catch (Exception e)
             {
-                DarkLog.Debug("Error relaying chat message: " + e);
+                DarkLog.Debug("Error relaying chat message: " + e.Message);
             }
         }
 

@@ -15,6 +15,7 @@ namespace DiscordMultiPlayerBot
         private Dictionary<ulong, ulong> database_reverse = new Dictionary<ulong, ulong>();
         public LinkDatabase()
         {
+            bool saveAfterLoad = false;
             if (File.Exists("database.txt"))
             {
                 string[] loadData = File.ReadAllLines("database.txt");
@@ -27,13 +28,22 @@ namespace DiscordMultiPlayerBot
                         ulong server = ulong.Parse(line.Substring(0, commapos));
                         ulong channel = ulong.Parse(line.Substring(commapos + 1, equalpos - commapos - 1));
                         ulong linkkey = ulong.Parse(line.Substring(equalpos + 1));
-                        database.Add(channel, linkkey);
-                        database_reverse.Add(linkkey, channel);
-                        servers.Add(linkkey, server);
+                        if (database_reverse.ContainsKey(linkkey))
+                        {
+                            saveAfterLoad = true;
+                            database.Remove(database_reverse[linkkey]);
+                        }
+                        database[channel] = linkkey;
+                        database_reverse[linkkey] = channel;
+                        servers[linkkey] = server;
                     }
                 }
             }
             else
+            {
+                Save();
+            }
+            if (saveAfterLoad)
             {
                 Save();
             }
@@ -43,6 +53,10 @@ namespace DiscordMultiPlayerBot
         {
             lock (database)
             {
+                if (database_reverse.ContainsKey(linkkey))
+                {
+                    database.Remove(database_reverse[linkkey]);
+                }
                 servers[linkkey] = server;
                 database[channel] = linkkey;
                 database_reverse[linkkey] = channel;
@@ -54,10 +68,19 @@ namespace DiscordMultiPlayerBot
         {
             lock (database)
             {
-                servers.Remove(database[channel]);
-                database_reverse.Remove(database[channel]);
-                database.Remove(channel);
-                Save();
+                if (database.ContainsKey(channel))
+                {
+                    if (servers.ContainsKey(database[channel]))
+                    {
+                        servers.Remove(database[channel]);
+                    }
+                    if (database_reverse.ContainsKey(database[channel]))
+                    {
+                        database_reverse.Remove(database[channel]);
+                    }
+                    database.Remove(channel);
+                    Save();
+                }
             }
         }
 

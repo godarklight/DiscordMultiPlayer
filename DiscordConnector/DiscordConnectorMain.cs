@@ -22,6 +22,7 @@ namespace DiscordConnector
         private int bufferPos = 0;
         private int bufferSize = 8;
         private DiscordServerMessageType messageType;
+        private IPAddress[] addresses;
 
         public DiscordConnectorMain(Action<string> sendMethod, Action<string> logMethod)
         {
@@ -45,7 +46,6 @@ namespace DiscordConnector
 
         public void SendToDiscord(string message)
         {
-            logMethod("[Discord] Sending " + message);
             using (MessageWriter mw = new MessageWriter())
             {
                 mw.Write<string>(message);
@@ -70,8 +70,10 @@ namespace DiscordConnector
             }
             if (timeNow > lastReceive + TIMEOUT)
             {
-                Reconnect();
+                lastConnect = timeNow;
                 lastReceive = timeNow;
+                lastSend = timeNow;
+                Reconnect();
             }
             ReceiveMessage();
         }
@@ -157,9 +159,37 @@ namespace DiscordConnector
             logMethod("[Discord] Connecting");
             try
             {
-                client = new TcpClient();
-                client.Connect(IPAddress.Loopback, 21584);
-                SendRegister();
+                IPAddress connectIP = null;
+                if (addresses == null)
+                {
+                    addresses = Dns.GetHostAddresses("godarklight.info.tm");
+                    foreach (IPAddress addr in addresses)
+                    {
+                        if (addr.AddressFamily == AddressFamily.InterNetworkV6)
+                        {
+                            connectIP = addr;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (IPAddress addr in addresses)
+                    {
+                        if (addr.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            connectIP = addr;
+                            break;
+                        }
+                    }
+                    addresses = null;
+                }
+                if (connectIP != null)
+                {
+                    client = new TcpClient(connectIP.AddressFamily);
+                    client.Connect(connectIP, 21584);
+                    SendRegister();
+                }
             }
             catch (Exception e)
             {
@@ -181,7 +211,10 @@ namespace DiscordConnector
         {
             if (client == null || !client.Connected)
             {
-                logMethod("[Discord] Cannot send, not connected");
+                if (type != DiscordClientMessageType.MESSAGE && type != DiscordClientMessageType.SCREENSHOT)
+                {
+                    logMethod("[Discord] Cannot send, not connected");
+                }
                 return;
             }
             using (MessageWriter mw = new MessageWriter())
@@ -202,7 +235,7 @@ namespace DiscordConnector
                 }
                 catch (Exception e)
                 {
-                    logMethod("[Discord] Error sending to discord bot: " + e);
+                    logMethod("[Discord] Error sending to discord bot: " + e.Message);
                 }
             }
         }
