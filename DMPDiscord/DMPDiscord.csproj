@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>DMPDiscord</RootNamespace>
     <AssemblyName>DMPDiscord</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,21 +27,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="DMPServer">
-      <HintPath>..\DMPServer.exe</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DarkMultiPlayer-Common">
-      <HintPath>..\DarkMultiPlayer-Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MessageWriter2">
-      <HintPath>..\MessageWriter2.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="DMPDiscord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,6 +35,21 @@
       <Project>{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}</Project>
       <Name>DiscordConnector</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="MessageWriter2">
+      <HintPath>..\External\MessageWriter2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DMPServer">
+      <HintPath>..\External\DMPServer.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DarkMultiPlayer-Common">
+      <HintPath>..\External\DarkMultiPlayer-Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
