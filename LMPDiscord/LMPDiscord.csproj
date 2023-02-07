@@ -30,8 +30,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Server">
-      <HintPath>..\External\Server.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\External\LMPServer\Server.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

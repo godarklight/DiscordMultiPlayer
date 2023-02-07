@@ -38,17 +38,14 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="MessageWriter2">
-      <HintPath>..\External\MessageWriter2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DarkMultiPlayer-Common">
+      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\DarkMultiPlayer-Common.dll</HintPath>
     </Reference>
     <Reference Include="DMPServer">
-      <HintPath>..\External\DMPServer.exe</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\DMPServer.exe</HintPath>
     </Reference>
-    <Reference Include="DarkMultiPlayer-Common">
-      <HintPath>..\External\DarkMultiPlayer-Common.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="MessageWriter2">
+      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\MessageWriter2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

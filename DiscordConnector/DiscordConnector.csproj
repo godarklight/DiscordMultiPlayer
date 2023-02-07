@@ -34,8 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="MessageWriter2">
-      <HintPath>..\External\MessageWriter2.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\MessageWriter2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
