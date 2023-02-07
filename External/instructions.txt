@@ -1,1 +1,0 @@
-Extract LMPServer.zip in this folder, so DiscordMultiPlayer/External/LMPServer/ exists 

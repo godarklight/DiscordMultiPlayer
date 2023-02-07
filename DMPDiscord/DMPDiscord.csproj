@@ -1,52 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiscordConnector\DiscordConnector.csproj" />
+    <ProjectReference Include="..\..\DarkMultiPlayer\Server\Server.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C458E6F7-7577-469C-8A7B-29A4E30F0984}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>DMPDiscord</RootNamespace>
-    <AssemblyName>DMPDiscord</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="DMPDiscord.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DiscordConnector\DiscordConnector.csproj">
-      <Project>{6D14E0E9-1B4B-4A86-A5A6-8CC618513CE7}</Project>
-      <Name>DiscordConnector</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="DarkMultiPlayer-Common">
-      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\DarkMultiPlayer-Common.dll</HintPath>
-    </Reference>
-    <Reference Include="DMPServer">
-      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\DMPServer.exe</HintPath>
-    </Reference>
-    <Reference Include="MessageWriter2">
-      <HintPath>..\..\DarkMultiPlayer\Server\bin\Debug\net472\MessageWriter2.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
 </Project>
