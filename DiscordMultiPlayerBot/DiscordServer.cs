@@ -55,6 +55,7 @@ namespace DiscordMultiPlayerBot
         {
             _client = new DiscordSocketClient(new DiscordSocketConfig
             {
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent,
                 // How much logging do you want to see?
                 LogLevel = LogSeverity.Info,
 

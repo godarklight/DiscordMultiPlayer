@@ -162,7 +162,7 @@ namespace DiscordConnector
                 IPAddress connectIP = null;
                 if (addresses == null)
                 {
-                    addresses = Dns.GetHostAddresses("godarklight.info.tm");
+                    addresses = Dns.GetHostAddresses("darklight.my.to");
                     foreach (IPAddress addr in addresses)
                     {
                         if (addr.AddressFamily == AddressFamily.InterNetworkV6)
